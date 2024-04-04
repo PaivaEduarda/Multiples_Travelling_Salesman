@@ -4,8 +4,8 @@ import sys
 import matplotlib.collections as mc #biblioteca para gráficos
 import matplotlib.pylab as pl
 
-n_cities = 101 #número de cidades
-n_salesman = 10
+n_cities = 5 #número de cidades
+n_salesman = 6
 
 def generate_coordinates(n_cities):
     coordinates = []
