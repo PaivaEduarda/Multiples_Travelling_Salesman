@@ -4,20 +4,22 @@ import sys
 import matplotlib.collections as mc #biblioteca para gráficos
 import matplotlib.pylab as pl
 
-n_cities = 5 #número de cidades
-n_salesman = 6
+n_cities = 13 #número de cidades
+n_salesman = 1
+
+coordenadas = [(500, 500), (708, 500), (707, 977), (43, 228), (140, 11), (899, 625), (389, 990), (205, 603), (878, 977), (24, 237), (218, 557), (362, 217), (504, 939)]
 
 def generate_coordinates(n_cities):
     coordinates = []
     for i in range(n_cities):
-        x = random.randint(0, 100)
-        y = random.randint(0, 100)
+        x = random.randint(0, 1000)
+        y = random.randint(0, 1000)
         coordinates.append((x,y))
 
     return coordinates
 
 
-def create_random_problem(coordinates):
+def create_problem(coordinates):
     n_cities = len(coordinates)
 
     distances = [[0 for _ in range(n_cities)] for _ in range(n_cities)]
@@ -42,7 +44,6 @@ def get_biggest_distance(distances, city, unvisited_cities):
     return ret, distance
 
 def get_cordinates_average(city, coordinates): #vetor de cidades
-    cordinates = [[0 for _ in range(len(city))] for _ in range(len(city))]
     x = []
     y = []
     for i in city:
@@ -78,14 +79,13 @@ def nearest_city(coordinates, x, y, unvisited):
         if distances < dist:
             dist = distances
             city = i
-    return city, dist
+    return city
     
-def heuristic_centroide():
+def heuristic_centroide(coordinates):
     unvisited = list(range(n_cities)) 
-    tour = [random.choice(unvisited)] 
+    tour = [0] 
     unvisited.remove(tour[-1]) 
-    coordinates = generate_coordinates(n_cities)
-    distances = create_random_problem(coordinates)  
+    distances = create_problem(coordinates)  
     city = 0
     distances_value = 0
     distances_array = []
@@ -93,14 +93,15 @@ def heuristic_centroide():
         tour_salesman = []
         tour_salesman.append(tour[0])
         cont = 0
-        while cont < i: 
+        while cont < i:
             x_av, y_av = get_cordinates_average(tour_salesman, coordinates)
             if cont == 0:
                 city, distances_value = get_biggest_distance(distances, tour_salesman[-1], unvisited) 
                 tour.append(city) 
                 
-            if cont >= 1: 
-                city, distances_value = nearest_city(coordinates, x_av, y_av, unvisited)
+            elif cont >= 1: 
+                city = nearest_city(coordinates, x_av, y_av, unvisited)
+                distances_value = distances[tour[-1]][city]
                 tour.append(city)
     
             tour_salesman.append(city)
@@ -111,6 +112,7 @@ def heuristic_centroide():
         dist_zero = distances[tour[0]][tour[-1]]
         tour.append(tour[0])
         distances_array.append(dist_zero)
+    print(distances_array)
     return tour, unvisited, distances_array
 
 def generate_lines(coordinates, tour):
@@ -151,8 +153,7 @@ def plot_tour(coordinates, tour):
 
 
 
-coordinates = generate_coordinates(n_cities)
-distances = create_random_problem(coordinates)
-tour, unvisited, d = heuristic_centroide()
+tour, unvisited, d = heuristic_centroide(coordenadas)
+print(tour)
 print(sum(d))
-plot_tour(coordinates, tour)
+plot_tour(coordenadas, tour)
