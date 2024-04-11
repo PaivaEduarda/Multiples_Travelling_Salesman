@@ -13,6 +13,7 @@ The experiments were conducted on a macOS Sonoma computer with an Apple M1 chip 
 - **Number of cities (n)**: 13, 17, 19, 31, 47, 59, 71, 83, 91
 - **Number of salesmen (m)**: 1, 3, 5
 
+
 ### Results
 | Instance       | n   | m   | k  | f(x) | r    |
 |----------------|-----|-----|----|------|------|
@@ -30,6 +31,10 @@ The experiments were conducted on a macOS Sonoma computer with an Apple M1 chip 
 
 ## Conclusion
 The results of the experiments demonstrate the effectiveness of the Centroid Heuristic in the practical solution of the Multiple Traveling Salesman Problem. Although the approximate solutions show disparities compared to the optimal solutions, the simplicity and effectiveness of this approach make it a viable choice for real-world problems where computational complexity is a concern.
+
+![Figure_1](https://github.com/PaivaEduarda/Multiples_Travelling_Salesman/assets/114159027/b741fb93-0e09-4ad2-894e-c2e331b96ecf)
+
+
 
 # Authors
 
