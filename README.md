@@ -30,3 +30,9 @@ Os experimentos foram conduzidos em um computador macOS Sonoma com um chip Apple
 
 ## Conclusão
 Os resultados dos experimentos demonstram a eficácia da heurística do Centroide na solução prática do problema dos múltiplos caixeiros-viajantes. Apesar das soluções aproximadas apresentarem disparidades em relação às soluções ótimas, a simplicidade e eficácia desta abordagem a tornam uma escolha viável para problemas do mundo real onde a complexidade computacional é uma preocupação.
+
+# Authors
+
+| [<img loading="lazy" src="https://avatars.githubusercontent.com/u/114159027?v=4" width=115><br><sub>Eduarda Paiva</sub>](https://github.com/PaivaEduarda) | [<img loading="lazy" src="https://avatars.githubusercontent.com/u/114162946?v=4" width=115><br><sub>Eloisa Paixão</sub>](https://github.com/eloisapaixao) | 
+| :---: | :---: |
+
