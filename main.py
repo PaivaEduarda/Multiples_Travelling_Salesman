@@ -7,8 +7,6 @@ import matplotlib.pylab as pl
 n_cities = 13 #número de cidades
 n_salesman = 1
 
-coordenadas = [(500, 500), (708, 500), (707, 977), (43, 228), (140, 11), (899, 625), (389, 990), (205, 603), (878, 977), (24, 237), (218, 557), (362, 217), (504, 939)]
-
 def generate_coordinates(n_cities):
     coordinates = []
     for i in range(n_cities):
@@ -152,8 +150,8 @@ def plot_tour(coordinates, tour):
     pl.show()
 
 
-
-tour, unvisited, d = heuristic_centroide(coordenadas)
+coordinates = generate_coordinates(n_cities)
+tour, unvisited, d = heuristic_centroide(coordinates)
 print(tour)
 print(sum(d))
-plot_tour(coordenadas, tour)
+plot_tour(coordinates, tour)
